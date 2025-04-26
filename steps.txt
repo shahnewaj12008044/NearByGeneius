@@ -1,0 +1,66 @@
+1.npm init
+2.npm install express
+3.npm install mongoose --save
+4.npm install typescript --save-dev
+5.npm install cors
+6.npm i dotenv
+7.initialize typescript json file using tsc --init command
+8.set rootdir and outdir in typescript json file
+9.create src folder and create app.ts in in it
+10.go to express and copy the hello world code
+11.npm i --save-dev @types/node and npm i --save-dev @types/express
+12.go to package.json write "build": "tsc" in scripts
+13.cut the app.listen part from app.ts and paste it on server.ts
+14.go to mongoose and connect it in server.ts
+15.go to mongodb atlas and then click connect and copy the url and paste it on a file created in root .env such as :::(PORT = 5000
+DATABASE_URL = mongodb+srv://mdshahnewajalhasan:<password>@cluster0.l7lxczb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0):::
+
+16.
+    16.A=> create an user from atlas and copy the username and pass
+    B=> paste it on the link in DATABASE_URL on marked places
+    C => write the name of the project in the link
+
+17. create  a folder named app in src and create config folder and create index.ts in it.
+
+18.write import dotenv from 'dotenv' in index.ts;import path from 'path'
+and write dotenv.config({path: path.join(process.cwd(), '.env')}) and export port and DATABASE_URL such as 
+    export default{
+        port: process.env.PORT
+    }
+
+19.Import the port and database url in server.ts using config.port and config.DATABASE_URL
+
+20.change require to import in app.ts and run npm i --save-dev @types/express
+
+20.change require"mongoose" into import in server.ts then decalare type of DATABASE_URL as string then export app from app.ts and import in server.ts and app.listen part moved into the main function scope
+
+21.use try catch syntax in server.ts before an async main function and write all in it call the function after declaration
+
+22.go to app.ts and use app.use(cors()) and app.use(express.json())
+    import cors and run npm i --save-dev @types/cors
+
+23.TYPESCRIT ESLINT AND PRETTIER SETUP:
+    put this line in tsconfig.json
+    "include": ["src"], // which files to compile
+  "exclude": ["node_modules"], // which files to skip
+
+    run npm install eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --save-dev
+
+    then run npx eslint --init
+
+24.after the update of eslint its bit different now follow the link:"https://github.com/ShafiaChy/Eslint-Config-Setup"
+NB: En error occured of typescript-eslint is not found then run 
+npm i -D typescript-eslint
+
+NB:write the applicable rule in the eslint.config.mjs 
+
+25.install prettier using npm install --save-dev prettier
+create .prettierrc.json put the rules here
+26.write the below code in scripts of package.json
+
+"prettier": "prettier --ignore-path .gitignore --write \"./src/**/*.+(js|ts|json)\"",
+    "prettier:fix": "npx prettier --write src",
+
+27.run npm install --save-dev eslint-config-prettier to avoit contradiction 
+
+28.connect with github
